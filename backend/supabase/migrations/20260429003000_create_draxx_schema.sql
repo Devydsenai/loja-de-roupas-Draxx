@@ -102,7 +102,7 @@ VALUES (
   '1990-01-01',
   '11999999999',
   'admin@draxx.com',
-  '$2b$10$REPLACE_HASH',
+  '$2b$10$6V0Ey5B1/vMJTE9SNIwnN.QtITMwjvmFTI9G/IrdDOihwQYBoyMK.',
   'admin'
 )
 ON CONFLICT (email) DO NOTHING;

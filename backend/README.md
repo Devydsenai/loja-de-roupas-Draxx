@@ -19,7 +19,15 @@ npm install
 npm run dev
 ```
 
-O mesmo processo entrega a **API** (`/api`) e o **site estático** em HTML/CSS/JS (`/` — pasta `public/`).
+O mesmo processo entrega a **API** (`/api`) e o **frontend estático** em HTML/CSS/JS (`/` - pasta `../frontend/`).
+
+## Interface web
+- `GET /` - loja pública com catálogo consumindo `GET /api/products`.
+- `GET /admin/` - dashboard administrativo.
+- `GET /admin/products.html` - cadastro, edição e exclusão de produtos.
+- `GET /admin/orders.html` - listagem administrativa de pedidos.
+
+As páginas do admin usam `localStorage` para guardar temporariamente o token JWT retornado por `POST /api/auth/login`.
 
 ## Rotas principais
 - `POST /api/auth/register` - cadastro de cliente
@@ -34,7 +42,7 @@ O mesmo processo entrega a **API** (`/api`) e o **site estático** em HTML/CSS/J
 - `GET /api/orders/admin/all` - todas as compras (admin)
 
 ## Organização
-- `public/` — vitrine em HTML, Bootstrap (CDN), CSS e JavaScript (sem build).
+- `../frontend/` — vitrine e dashboard em HTML, Bootstrap (CDN), CSS e JavaScript (sem build).
 - `src/modules/*` — controllers, rotas e schemas por domínio.
 - `src/middlewares/*` — autenticação, validação e tratamento de erros.
 - `src/config/*` — ambiente e pool PostgreSQL.

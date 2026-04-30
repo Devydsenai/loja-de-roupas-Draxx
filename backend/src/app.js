@@ -11,10 +11,10 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 import { router } from "./routes/index.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const publicDir = path.join(__dirname, "..", "public");
+const frontendDir = path.join(__dirname, "..", "..", "frontend");
 
 /**
- * App Express: API em `/api`, site estático (HTML/CSS/JS) na raiz.
+ * App Express: API em `/api`, frontend estático (HTML/CSS/JS) na raiz.
  */
 export const app = express();
 
@@ -29,7 +29,7 @@ app.use(
         styleSrc: ["'self'", "https://cdn.jsdelivr.net"],
         fontSrc: ["'self'", "https://cdn.jsdelivr.net"],
         imgSrc: ["'self'", "data:", "https:"],
-        connectSrc: ["'self'"],
+        connectSrc: ["'self'", "https://cdn.jsdelivr.net"],
       },
     },
   }),
@@ -52,8 +52,16 @@ app.use(morgan(env.nodeEnv === "production" ? "combined" : "dev"));
 
 app.use("/api", router);
 
+app.get("/favicon.ico", (req, res) => {
+  res.redirect(308, "/favicon.svg");
+});
+
+app.get(["/0", "/admin/0"], (req, res) => {
+  res.status(204).send();
+});
+
 app.use(
-  express.static(publicDir, {
+  express.static(frontendDir, {
     index: ["index.html"],
     maxAge: env.nodeEnv === "production" ? "1d" : 0,
   }),

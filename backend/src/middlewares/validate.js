@@ -10,7 +10,6 @@ export function validate(schema) {
     });
 
     req.body = parsed.body;
-    req.query = parsed.query;
     req.params = parsed.params;
     next();
   };

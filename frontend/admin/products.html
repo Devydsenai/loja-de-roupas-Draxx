@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Draxx Admin | Produtos</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body class="admin-body" data-admin-page="products" data-admin-protected="true">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <a class="navbar-brand fw-semibold letter-space text-white text-decoration-none" href="/admin/">
+            DRAXX
+          </a>
+          <span class="badge text-bg-dark">Admin</span>
+        </div>
+        <nav class="admin-nav">
+          <a href="/admin/">Dashboard <span>01</span></a>
+          <a class="active" href="/admin/products.html">Produtos <span>02</span></a>
+          <a href="/admin/orders.html">Pedidos <span>03</span></a>
+          <a href="/">Loja <span>Web</span></a>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div>
+            <p class="section-eyebrow mb-1">Catálogo</p>
+            <h1 class="h3 mb-0">Produtos</h1>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span id="admin-user" class="badge rounded-pill text-bg-secondary">Sem login</span>
+            <button id="logout-button" class="btn btn-sm btn-outline-light" type="button">Sair</button>
+          </div>
+        </header>
+
+        <div id="admin-alert" class="alert alert-info" hidden></div>
+
+        <section class="auth-panel admin-card mb-4">
+          <div class="admin-card-header">
+            <div>
+              <h2 class="h5 mb-0">Login administrativo</h2>
+              <p class="small text-secondary mb-0">Necessário para criar, editar e excluir.</p>
+            </div>
+          </div>
+          <div class="admin-card-body">
+            <form id="login-form" class="row g-3">
+              <div class="col-md-5">
+                <label class="form-label" for="email">E-mail</label>
+                <input id="email" class="form-control" name="email" type="email" required />
+              </div>
+              <div class="col-md-5">
+                <label class="form-label" for="password">Senha</label>
+                <input id="password" class="form-control" name="password" type="password" required />
+              </div>
+              <div class="col-md-2 d-flex align-items-end">
+                <button class="btn btn-accent w-100" type="submit">Entrar</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="row g-4 mb-4">
+          <div class="col-md-4">
+            <div class="admin-card metric-card">
+              <span>Produtos cadastrados</span>
+              <strong id="metric-products">0</strong>
+              <small>total</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="admin-card metric-card">
+              <span>Pedidos</span>
+              <strong id="metric-orders">0</strong>
+              <small>admin</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="admin-card metric-card">
+              <span>Estoque total</span>
+              <strong id="metric-stock">0</strong>
+              <small>unidades</small>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-card mb-4">
+          <div class="admin-card-header">
+            <div>
+              <h2 class="h5 mb-0">Cadastrar produto</h2>
+              <p class="small text-secondary mb-0">Usa `POST /api/products` e `PATCH /api/products/:id`.</p>
+            </div>
+          </div>
+          <div class="admin-card-body">
+            <form id="product-form" class="row g-3">
+              <input name="id" type="hidden" />
+              <div class="col-md-6">
+                <label class="form-label" for="name">Nome</label>
+                <input id="name" class="form-control" name="name" minlength="3" required />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label" for="price">Preço</label>
+                <input id="price" class="form-control" name="price" type="number" step="0.01" min="0.01" required />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label" for="stock">Estoque</label>
+                <input id="stock" class="form-control" name="stock" type="number" step="1" min="0" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="description">Descrição</label>
+                <textarea id="description" class="form-control" name="description" rows="3" minlength="5" required></textarea>
+              </div>
+              <div class="col-md-9">
+                <label class="form-label" for="imageUrl">URL da imagem</label>
+                <input id="imageUrl" class="form-control" name="imageUrl" type="url" placeholder="https://..." />
+              </div>
+              <div class="col-md-3 d-flex align-items-end">
+                <div class="form-check">
+                  <input id="active" class="form-check-input" name="active" type="checkbox" checked />
+                  <label class="form-check-label" for="active">Produto ativo</label>
+                </div>
+              </div>
+              <div class="col-12 d-flex gap-2">
+                <button class="btn btn-accent" type="submit">Salvar produto</button>
+                <button class="btn btn-outline-light" type="reset">Limpar</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="admin-card">
+          <div class="admin-card-header">
+            <h2 class="h5 mb-0">Lista de produtos</h2>
+            <span class="small text-secondary">ações admin</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-dark admin-table">
+              <thead>
+                <tr>
+                  <th>Produto</th>
+                  <th>Preço</th>
+                  <th>Estoque</th>
+                  <th>Status</th>
+                  <th class="text-end">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="products-table"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/js/admin.js" defer></script>
+  </body>
+</html>
