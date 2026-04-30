@@ -1,0 +1,115 @@
+:root {
+  --draxx-bg: #0d0d0f;
+  --draxx-surface: #16161a;
+  --draxx-accent: #c9a227;
+  --draxx-accent-hover: #ddb92e;
+  --draxx-muted: #9a9aa3;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  background-color: var(--draxx-bg);
+  color: #f4f4f5;
+}
+
+.bg-draxx {
+  background-color: var(--draxx-surface) !important;
+}
+
+.text-secondary-custom {
+  color: var(--draxx-muted) !important;
+}
+
+.text-accent {
+  color: var(--draxx-accent);
+}
+
+.letter-space {
+  letter-spacing: 0.2em;
+}
+
+.tracking {
+  letter-spacing: 0.35em;
+}
+
+.min-vh-50 {
+  min-height: 42vh;
+}
+
+@media (min-width: 992px) {
+  .py-lg-6 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+}
+
+.hero {
+  position: relative;
+  background: linear-gradient(
+      135deg,
+      rgba(13, 13, 15, 0.92) 0%,
+      rgba(22, 22, 26, 0.88) 50%,
+      #0d0d0f 100%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(201, 162, 39, 0.12),
+      transparent 55%
+    );
+}
+
+.hero-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 255, 255, 0.02) 6px,
+    rgba(255, 255, 255, 0.02) 7px
+  );
+}
+
+.btn-accent {
+  --bs-btn-color: #0d0d0f;
+  --bs-btn-bg: var(--draxx-accent);
+  --bs-btn-border-color: var(--draxx-accent);
+  --bs-btn-hover-bg: var(--draxx-accent-hover);
+  --bs-btn-hover-border-color: var(--draxx-accent-hover);
+  --bs-btn-active-bg: var(--draxx-accent-hover);
+  --bs-btn-active-border-color: var(--draxx-accent-hover);
+  font-weight: 600;
+}
+
+.section-muted {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.max-w-prose {
+  max-width: 36rem;
+}
+
+.card-product {
+  background-color: var(--draxx-surface);
+  color: #f4f4f5;
+}
+
+.card-product .card-title {
+  color: #fff;
+}
+
+.navbar-dark .nav-link {
+  color: var(--draxx-muted);
+}
+
+.navbar-dark .nav-link:hover,
+.navbar-dark .nav-link.active {
+  color: #fff;
+}
+
+code {
+  font-size: 0.85em;
+  color: var(--draxx-accent);
+}

@@ -11,13 +11,15 @@ API REST da loja de roupas Draxx.
 ## Como executar
 1. Copie `.env.example` para `.env`.
 2. Preencha `DATABASE_URL` e `JWT_SECRET`.
-3. Rode o SQL em `database/schema.sql` no Supabase SQL Editor.
-4. Instale dependências e suba a API:
+3. Aplique as migrações em `supabase/migrations/` no SQL Editor do Supabase (ou CLI).
+4. Instale dependências e suba o servidor:
 
 ```bash
 npm install
 npm run dev
 ```
+
+O mesmo processo entrega a **API** (`/api`) e o **site estático** em HTML/CSS/JS (`/` — pasta `public/`).
 
 ## Rotas principais
 - `POST /api/auth/register` - cadastro de cliente
@@ -32,7 +34,9 @@ npm run dev
 - `GET /api/orders/admin/all` - todas as compras (admin)
 
 ## Organização
-- `src/modules/*` contém controllers, rotas e schemas por domínio.
-- `src/middlewares/*` contém autenticação, validação e erros.
-- `database/schema.sql` contém tabelas e tipos para Supabase.
-- `docs/` contém levantamento e quadro Kanban/Trello.
+- `public/` — vitrine em HTML, Bootstrap (CDN), CSS e JavaScript (sem build).
+- `src/modules/*` — controllers, rotas e schemas por domínio.
+- `src/middlewares/*` — autenticação, validação e tratamento de erros.
+- `src/config/*` — ambiente e pool PostgreSQL.
+- `src/lib/logger.js` — logs com timestamp.
+- `supabase/migrations/` — SQL versionado para o banco.

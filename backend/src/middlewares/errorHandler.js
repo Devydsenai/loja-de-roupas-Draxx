@@ -1,3 +1,4 @@
+import { logger } from "../lib/logger.js";
 import { ApiError } from "../utils/apiError.js";
 
 /**
@@ -23,7 +24,7 @@ export function errorHandler(error, req, res, next) {
     });
   }
 
-  console.error(error);
+  logger.error("Erro não tratado", error);
   return res.status(500).json({
     error: {
       message: "Erro interno do servidor.",

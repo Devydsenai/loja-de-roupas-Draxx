@@ -8,7 +8,12 @@ import { usersRouter } from "../modules/users/users.routes.js";
 const router = Router();
 
 router.get("/health", (req, res) => {
-  res.json({ status: "ok", service: "drax-backend-api" });
+  res.json({
+    status: "ok",
+    service: "draxx-api",
+    version: "1.0.0",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 router.use("/auth", authRouter);

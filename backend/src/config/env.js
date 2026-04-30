@@ -6,12 +6,22 @@ dotenv.config();
  * Configurações de ambiente centralizadas.
  * Este objeto evita acesso espalhado a process.env pelo sistema.
  */
+/** Lista separada por vírgula; vazio = permite qualquer origem em dev (CORS). */
+function parseCorsOrigins(raw) {
+  if (!raw?.trim()) return [];
+  return raw
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 export const env = {
   nodeEnv: process.env.NODE_ENV ?? "development",
   port: Number(process.env.PORT ?? 3000),
   databaseUrl: process.env.DATABASE_URL ?? "",
   jwtSecret: process.env.JWT_SECRET ?? "",
   jwtExpiresIn: process.env.JWT_EXPIRES_IN ?? "7d",
+  corsOrigins: parseCorsOrigins(process.env.CORS_ORIGINS ?? ""),
 };
 
 /**
