@@ -16,30 +16,152 @@
   </head>
   <body class="admin-body" data-admin-page="products" data-admin-protected="true">
     <div class="admin-layout">
-      <aside class="admin-sidebar">
-        <div class="admin-brand">
-          <a class="navbar-brand fw-semibold letter-space text-white text-decoration-none" href="/admin/">
-            DRAXX
+      <aside class="admin-sidebar" aria-label="Navegação administrativa">
+        <div class="admin-sidebar__top">
+          <a class="admin-logo" href="/admin/" aria-label="Draxx Admin — início">
+            <span class="admin-logo__word">
+              <span class="admin-logo__part">DRA</span>
+              <svg
+                class="admin-logo__cart"
+                viewBox="6.5 15 41 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M10 20v11h7"
+                  stroke="currentColor"
+                  stroke-width="3.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17 31h27.5l-3.2 17.5H21.2L17 31z"
+                  stroke="currentColor"
+                  stroke-width="3.4"
+                  stroke-linejoin="round"
+                />
+                <circle cx="25.5" cy="52.5" r="4" fill="currentColor" />
+                <circle cx="38" cy="52.5" r="4" fill="currentColor" />
+              </svg>
+              <span class="admin-logo__part">XX</span>
+            </span>
           </a>
-          <span class="badge text-bg-dark">Admin</span>
+          <button
+            type="button"
+            class="admin-sidebar__collapse"
+            id="admin-sidebar-collapse"
+            aria-label="Recolher menu lateral"
+            title="Recolher menu"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M14 7l-5 5 5 5"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path d="M4 5v14M20 5v14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.3" />
+            </svg>
+          </button>
         </div>
-        <nav class="admin-nav">
-          <a href="/admin/">Dashboard <span>01</span></a>
-          <a class="active" href="/admin/products.html">Produtos <span>02</span></a>
-          <a href="/admin/orders.html">Pedidos <span>03</span></a>
-          <a href="/">Loja <span>Web</span></a>
+        <nav class="admin-sidebar__nav">
+          <div class="admin-nav-group">
+            <p class="admin-nav-group__label">Menu principal</p>
+            <a class="admin-nav-link" href="/admin/">
+              <svg class="admin-nav-link__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M4 10.5L12 3.5l8 7v10a1 1 0 01-1 1h-5v-7H10v7H5a1 1 0 01-1-1v-10z"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+            <a class="admin-nav-link" href="/admin/orders.html">
+              <svg class="admin-nav-link__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M6 7h14l-1 11H7L6 7z"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 7h2"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span>Pedidos</span>
+            </a>
+          </div>
+          <div class="admin-nav-group">
+            <p class="admin-nav-group__label">Catálogo</p>
+            <a class="admin-nav-link is-active" href="/admin/products.html">
+              <svg class="admin-nav-link__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M4 8.5a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2v-9z"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                />
+                <path d="M8.5 11h7" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" />
+              </svg>
+              <span>Produtos</span>
+            </a>
+          </div>
         </nav>
+        <div class="admin-sidebar__footer">
+          <div class="admin-sidebar__user">
+            <div class="admin-sidebar__avatar" id="admin-avatar">?</div>
+            <div class="admin-sidebar__user-text">
+              <strong id="admin-sidebar-name">Convidado</strong>
+              <span id="admin-sidebar-email">Faça login para continuar</span>
+            </div>
+            <button type="button" class="admin-sidebar__logout" id="logout-button" aria-label="Sair da sessão" title="Sair">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M10 17l5-5-5-5M15 12H3"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M21 4v16" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" opacity="0.35" />
+              </svg>
+            </button>
+          </div>
+          <a class="admin-sidebar__shop-btn" href="/" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M3 10V8a2 2 0 012-2h3M3 10v8a2 2 0 002 2h14M3 10h8.5M16.5 6h4V3l3 3v4h-3a2 2 0 01-2-2V6z"
+                stroke="currentColor"
+                stroke-width="1.55"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>Ver loja</span>
+            <svg class="admin-icon-ext" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
       </aside>
 
       <main class="admin-main">
         <header class="admin-topbar">
           <div>
-            <p class="section-eyebrow mb-1">Catálogo</p>
-            <h1 class="h3 mb-0">Produtos</h1>
-          </div>
-          <div class="d-flex align-items-center gap-2">
-            <span id="admin-user" class="badge rounded-pill text-bg-secondary">Sem login</span>
-            <button id="logout-button" class="btn btn-sm btn-outline-light" type="button">Sair</button>
+            <p class="admin-eyebrow">Catálogo</p>
+            <h1 class="admin-page-title">Produtos</h1>
           </div>
         </header>
 
@@ -143,7 +265,7 @@
             <span class="small text-secondary">ações admin</span>
           </div>
           <div class="table-responsive">
-            <table class="table table-dark admin-table">
+            <table class="table admin-table align-middle">
               <thead>
                 <tr>
                   <th>Produto</th>

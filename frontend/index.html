@@ -17,136 +17,858 @@
     />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
-  <body class="site-shell">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-draxx border-bottom border-secondary sticky-top">
-      <div class="container">
-        <a class="navbar-brand fw-semibold letter-space" href="/">DRAXX</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navMain"
-          aria-controls="navMain"
-          aria-expanded="false"
-          aria-label="Alternar menu"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMain">
-          <ul class="navbar-nav ms-auto gap-lg-2">
-            <li class="nav-item">
-              <a class="nav-link active" href="/">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#catalogo">Catálogo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#colecao">Coleção</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contato">Contato</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-outline-light btn-sm ms-lg-2" href="/admin/">Admin</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <body class="site-shell site-shell--storefront">
+    <header class="deal-header">
+      <div class="deal-header__main">
+        <div class="container-deal">
+          <div class="deal-header__main-grid">
+            <a class="deal-logo" href="/" aria-label="Draxx — início">
+              <span class="deal-logo__word">
+                <span class="deal-logo__part">DRA</span>
+                <svg
+                  class="deal-logo__cart"
+                  viewBox="6.5 15 41 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10 20v11h7"
+                    stroke="currentColor"
+                    stroke-width="3.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17 31h27.5l-3.2 17.5H21.2L17 31z"
+                    stroke="currentColor"
+                    stroke-width="3.4"
+                    stroke-linejoin="round"
+                  />
+                  <circle cx="25.5" cy="52.5" r="4" fill="currentColor" />
+                  <circle cx="38" cy="52.5" r="4" fill="currentColor" />
+                </svg>
+                <span class="deal-logo__part">XX</span>
+              </span>
+            </a>
 
-    <header class="hero text-white">
-      <div class="hero-overlay"></div>
-      <div class="container position-relative py-5 py-lg-6">
-        <div class="row align-items-center min-vh-50 g-5">
-          <div class="col-lg-7">
-            <p class="text-uppercase small tracking mb-2 text-secondary-custom">
-              Nova coleção · drop urbano
-            </p>
-            <h1 class="display-4 fw-bold mb-3">
-              Moda streetwear com presença <span class="text-accent">premium</span>
-            </h1>
-            <p class="lead text-secondary-custom mb-4 max-w-prose">
-              Camisetas, calças e acessórios criados para quem quer vestir atitude,
-              conforto e identidade em todos os detalhes.
-            </p>
-            <div class="d-flex flex-wrap gap-3">
-              <a class="btn btn-accent btn-lg px-4" href="#catalogo">Ver catálogo</a>
-              <a class="btn btn-outline-light btn-lg px-4" href="#colecao">Conhecer coleção</a>
+            <span class="deal-divider deal-divider--v" aria-hidden="true"></span>
+
+            <button type="button" class="deal-locate" aria-label="Definir local de entrega">
+              <svg class="deal-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s7-5.2 7-11a7 7 0 10-14 0c0 5.8 7 11 7 11z" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="12" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+              <span class="deal-locate__text">
+                <span class="deal-locate__small">Entregar em</span>
+                <span class="deal-locate__strong">Seu endereço</span>
+              </span>
+            </button>
+
+            <span class="deal-divider deal-divider--v deal-hide-sm" aria-hidden="true"></span>
+
+            <div class="deal-lang deal-hide-sm" aria-label="Idioma: português (Brasil)">
+              <span class="deal-lang__flag" aria-hidden="true">🇧🇷</span>
+              <span>PT</span>
+              <svg class="deal-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
             </div>
-            <div class="row g-3 mt-4 hero-stats">
-              <div class="col-4">
-                <strong>+120</strong>
-                <span>peças</span>
-              </div>
-              <div class="col-4">
-                <strong>24h</strong>
-                <span>separação</span>
-              </div>
-              <div class="col-4">
-                <strong>4.9</strong>
-                <span>avaliação</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5">
-            <div class="hero-card shadow-lg">
-              <div class="hero-card-badge">Drop 2026</div>
-              <div class="hero-product-preview">
-                <span class="preview-neck"></span>
-                <span class="preview-logo">DRAXX</span>
-              </div>
-              <div class="d-flex justify-content-between align-items-end mt-4">
-                <div>
-                  <p class="small text-secondary-custom mb-1">Produto destaque</p>
-                  <h2 class="h5 mb-0">Oversized Urban Tee</h2>
-                </div>
-                <span class="price-chip">R$ 129,90</span>
-              </div>
+
+            <form class="deal-search" action="#catalogo" method="get" role="search">
+              <label class="visually-hidden" for="deal-search-q">Buscar na loja</label>
+              <input id="deal-search-q" class="deal-search__input" type="search" name="q" placeholder="O que você procura?" autocomplete="off" />
+              <button type="submit" class="deal-search__btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M16 16l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <span>Buscar</span>
+              </button>
+            </form>
+
+            <div class="deal-header__actions">
+              <a class="deal-icon-link" href="/admin/" title="Conta / painel administrativo" aria-label="Conta e administrador">
+                <svg class="deal-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M4 20a8 8 0 0116 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </a>
+              <a class="deal-cart-link" href="#catalogo" aria-label="Carrinho de compras">
+                <svg class="deal-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8.25 18.75a.75.75 0 100 1.5.75.75 0 000-1.5zM18.75 18.75a.75.75 0 100 1.5.75.75 0 000-1.5zM2.25 3.75h2.1l1.05 5.25m0 0h12.6l2.1-9H6.45" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.45 9l-1.2 6h12.45" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Carrinho</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
+
+      <nav class="deal-header__sub" aria-label="Navegação principal">
+        <div class="container-deal">
+          <div class="deal-header__sub-inner">
+            <div class="deal-sub-left">
+              <button type="button" class="deal-menu-btn" data-bs-toggle="offcanvas" data-bs-target="#dealMobileNav" aria-controls="dealMobileNav" aria-label="Abrir menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                </svg>
+                <span>Menu</span>
+              </button>
+              <span class="deal-divider deal-divider--v" aria-hidden="true"></span>
+              <div class="deal-sub-links">
+                <a href="#colecao">Explorar</a>
+                <a href="#catalogo">Ofertas</a>
+                <a href="#catalogo">Salvos</a>
+              </div>
+            </div>
+            <div class="deal-sub-right">
+              <a class="is-active" href="/" aria-current="page">Início</a>
+              <a href="#catalogo">Produtos</a>
+              <a href="#sobre">Sobre nós</a>
+              <a href="#contato">Contato</a>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 
-    <main>
-      <section id="colecao" class="py-5 bg-draxx-soft">
-        <div class="container py-4">
-          <div class="row g-4 align-items-end mb-4">
-            <div class="col-lg-7">
-              <p class="section-eyebrow">Categorias</p>
-              <h2 class="h3 fw-semibold mb-2">Escolha seu estilo</h2>
-              <p class="text-secondary mb-0">
-                Uma vitrine pronta para crescer com os produtos reais cadastrados no painel.
-              </p>
-            </div>
-            <div class="col-lg-5 text-lg-end">
-              <span id="api-status" class="badge rounded-pill bg-secondary">
-                Verificando API...
-              </span>
+    <div class="offcanvas offcanvas-start deal-offcanvas" tabindex="-1" id="dealMobileNav" aria-labelledby="dealMobileNavLabel">
+      <div class="offcanvas-header border-bottom">
+        <h2 class="offcanvas-title h5 mb-0" id="dealMobileNavLabel">Menu</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column gap-2">
+        <a class="deal-offcanvas__link" href="/">Início</a>
+        <a class="deal-offcanvas__link" href="#colecao">Explorar</a>
+        <a class="deal-offcanvas__link" href="#catalogo">Ofertas · Produtos</a>
+        <a class="deal-offcanvas__link" href="#sobre">Sobre nós</a>
+        <a class="deal-offcanvas__link" href="#contato">Contato</a>
+        <a class="deal-offcanvas__link" href="/admin/">Painel admin</a>
+      </div>
+    </div>
+
+    <section class="home-hero-carousel-wrap" aria-label="Destaques em carrossel">
+      <div
+        id="draxxHomeCarousel"
+        class="carousel slide home-hero-carousel"
+        data-bs-ride="carousel"
+        data-bs-interval="6500"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="home-hero-slide">
+              <div class="home-hero-slide__panel">
+                <h2 class="home-hero-slide__title">Descubra as últimas ofertas –</h2>
+                <p class="home-hero-slide__tagline">Até 50% de desconto!</p>
+                <a class="btn home-hero-slide__cta" href="#catalogo">Comprar agora</a>
+              </div>
+              <div
+                class="home-hero-slide__photo"
+                style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"
+                role="img"
+                aria-label="Moda masculina em loja"
+              ></div>
             </div>
           </div>
-          <div class="row g-4">
-            <div class="col-md-4">
-              <article class="category-card">
-                <span class="category-icon">01</span>
-                <h3>Camisetas</h3>
-                <p>Cortes oversized, básicos premium e estampas exclusivas.</p>
+          <div class="carousel-item">
+            <div class="home-hero-slide">
+              <div class="home-hero-slide__panel">
+                <h2 class="home-hero-slide__title">Coleção nova toda semana –</h2>
+                <p class="home-hero-slide__tagline">Frete grátis acima de R$&nbsp;199!</p>
+                <a class="btn home-hero-slide__cta" href="#catalogo">Comprar agora</a>
+              </div>
+              <div
+                class="home-hero-slide__photo"
+                style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"
+                role="img"
+                aria-label="Vitrine de roupas"
+              ></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="home-hero-slide">
+              <div class="home-hero-slide__panel">
+                <h2 class="home-hero-slide__title">Draxx · sua vitrine online –</h2>
+                <p class="home-hero-slide__tagline">Peças selecionadas com até 40% OFF!</p>
+                <a class="btn home-hero-slide__cta" href="#catalogo">Comprar agora</a>
+              </div>
+              <div
+                class="home-hero-slide__photo"
+                style="background-image: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&amp;fit=crop&amp;w=1400&amp;q=80')"
+                role="img"
+                aria-label="Estilo e moda"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev home-hero-carousel__ctrl"
+          type="button"
+          data-bs-target="#draxxHomeCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="home-hero-carousel__ctrl-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 6l-6 6 6 6"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="visually-hidden">Slide anterior</span>
+        </button>
+        <button
+          class="carousel-control-next home-hero-carousel__ctrl"
+          type="button"
+          data-bs-target="#draxxHomeCarousel"
+          data-bs-slide="next"
+        >
+          <span class="home-hero-carousel__ctrl-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="visually-hidden">Próximo slide</span>
+        </button>
+      </div>
+    </section>
+
+    <main>
+      <section id="colecao" class="home-showcase py-4 py-lg-5 bg-draxx-soft">
+        <div class="container py-2">
+          <div class="row g-3 g-lg-4 align-items-stretch">
+            <div class="col-lg-4 d-flex">
+              <article class="showcase-tile showcase-tile--tall flex-grow-1">
+                <div
+                  class="showcase-tile__bg"
+                  style="background-image: url('https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&amp;fit=crop&amp;w=900&amp;q=80')"
+                ></div>
+                <div class="showcase-tile__body">
+                  <h3 class="showcase-tile__title">Ano novo! Nova moda</h3>
+                  <a class="btn home-hero-slide__cta btn-sm px-4" href="#catalogo">Comprar agora</a>
+                </div>
               </article>
             </div>
-            <div class="col-md-4">
-              <article class="category-card">
-                <span class="category-icon">02</span>
-                <h3>Bottoms</h3>
-                <p>Calças, shorts e bermudas para rotina urbana.</p>
+            <div class="col-lg-4 d-flex">
+              <div class="showcase-stack flex-grow-1 d-flex flex-column">
+                <div class="showcase-stack__head">
+                  <h3 class="showcase-stack__title mb-0">Acessórios gamer</h3>
+                  <a class="showcase-stack__more" href="#catalogo">Ver mais</a>
+                </div>
+                <div class="showcase-quad">
+                  <a class="showcase-quad__cell" href="#catalogo">
+                    <div
+                      class="showcase-quad__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                    ></div>
+                    <span>Headsets</span>
+                  </a>
+                  <a class="showcase-quad__cell" href="#catalogo">
+                    <div
+                      class="showcase-quad__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                    ></div>
+                    <span>Mouse</span>
+                  </a>
+                  <a class="showcase-quad__cell" href="#catalogo">
+                    <div
+                      class="showcase-quad__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1592841200221-a6898f307baa?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                    ></div>
+                    <span>Controle</span>
+                  </a>
+                  <a class="showcase-quad__cell" href="#catalogo">
+                    <div
+                      class="showcase-quad__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1598550476439-68477867f588?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                    ></div>
+                    <span>Cadeira</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex">
+              <div class="showcase-col-right flex-grow-1 d-flex flex-column gap-3">
+                <div class="row g-3 flex-grow-0">
+                  <div class="col-6">
+                    <a href="#catalogo" class="showcase-mini h-100">
+                      <div
+                        class="showcase-mini__bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&amp;fit=crop&amp;w=500&amp;q=80')"
+                      ></div>
+                      <span class="showcase-mini__cap">Seja o vencedor</span>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="#catalogo" class="showcase-mini h-100">
+                      <div
+                        class="showcase-mini__bg"
+                        style="background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=500&amp;q=80')"
+                      ></div>
+                      <span class="showcase-mini__cap">Smartphone destaque</span>
+                    </a>
+                  </div>
+                </div>
+                <a href="#catalogo" class="showcase-tv flex-grow-1">
+                  <div
+                    class="showcase-tv__bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1593359677877-a4bb92f829d1?auto=format&amp;fit=crop&amp;w=900&amp;q=80')"
+                  ></div>
+                  <div class="showcase-tv__body">
+                    <div>
+                      <p class="showcase-tv__brand mb-1">Smart TV 4K</p>
+                      <p class="showcase-tv__price mb-0">R$&nbsp;3.750,99</p>
+                    </div>
+                    <span class="btn home-hero-slide__cta btn-sm px-3">Comprar agora</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-strip-banners py-4 bg-draxx-soft">
+        <div class="container">
+          <div class="row g-3">
+            <div class="col-6 col-lg-3">
+              <a href="#catalogo" class="strip-banner strip-banner--simple">
+                <div
+                  class="strip-banner__bg"
+                  style="background-image: url('https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                ></div>
+                <span class="strip-banner__label">Moda calças</span>
+              </a>
+            </div>
+            <div class="col-6 col-lg-3">
+              <a href="#catalogo" class="strip-banner">
+                <div
+                  class="strip-banner__bg"
+                  style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                ></div>
+                <span class="strip-banner__label">Moda masculina</span>
+                <span class="strip-banner__cta">Comprar agora</span>
+              </a>
+            </div>
+            <div class="col-6 col-lg-3">
+              <a href="#catalogo" class="strip-banner">
+                <div
+                  class="strip-banner__bg"
+                  style="background-image: url('https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                ></div>
+                <span class="strip-banner__label">Jeans</span>
+                <span class="strip-banner__more">Ver mais</span>
+              </a>
+            </div>
+            <div class="col-6 col-lg-3">
+              <a href="#catalogo" class="strip-banner">
+                <div
+                  class="strip-banner__bg"
+                  style="background-image: url('https://images.unsplash.com/photo-1574269909862-7e114d5a8bc2?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                ></div>
+                <span class="strip-banner__label">Eletrodomésticos</span>
+                <span class="strip-banner__cta">Comprar agora</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trending-block py-5" aria-labelledby="trending-heading">
+        <div class="container">
+          <div class="trending-block__head d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <h2 id="trending-heading" class="trending-block__title h4 fw-bold mb-0">Produtos em Alta</h2>
+            <a class="trending-block__view-all" href="#catalogo">Ver tudo</a>
+          </div>
+          <div class="row g-4 align-items-stretch">
+            <div class="col-12 col-md-6 col-lg-3 d-flex">
+              <article class="trending-card flex-grow-1 d-flex flex-column">
+                <div class="trending-card__media">
+                  <div
+                    class="trending-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                  ></div>
+                  <button type="button" class="trending-wish" aria-label="Adicionar aos favoritos">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M12 21s-7-4.35-9-9c-1.5-3.5 0-7 4-7 2.5 0 4 2 5 3 1-1 2.5-3 5-3 4 0 5.5 3.5 4 7-2 4.65-9 9-9 9z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="trending-card__body flex-grow-1 d-flex flex-column">
+                  <h3 class="trending-card__name">Sérum hidratante Radiant Glow</h3>
+                  <p class="trending-card__desc">Hidratação profunda com vitamina C e ácido hialurônico.</p>
+                  <div class="trending-card__rating" aria-label="Avaliação 5 de 5, 342 avaliações">
+                    <span class="trending-stars" aria-hidden="true">★★★★★</span>
+                    <span class="trending-card__reviews">(342 avaliações)</span>
+                  </div>
+                  <div class="trending-card__price-row">
+                    <strong class="trending-price">R$&nbsp;29,99</strong>
+                    <span class="trending-price-old">R$&nbsp;39,99</span>
+                    <span class="trending-pct">20% OFF</span>
+                  </div>
+                  <div class="trending-card__actions mt-auto pt-3 d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                    <a class="trending-link-details" href="#catalogo">Ver detalhes</a>
+                    <a class="btn trending-btn-cart" href="#catalogo">Adicionar ao carrinho</a>
+                  </div>
+                </div>
               </article>
             </div>
-            <div class="col-md-4">
-              <article class="category-card">
-                <span class="category-icon">03</span>
-                <h3>Acessórios</h3>
-                <p>Bonés, shoulder bags e detalhes que fecham o look.</p>
+            <div class="col-12 col-md-6 col-lg-3 d-flex">
+              <article class="trending-card flex-grow-1 d-flex flex-column">
+                <div class="trending-card__media">
+                  <div
+                    class="trending-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1608248543803-f38d2fc46a69?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                  ></div>
+                  <button type="button" class="trending-wish" aria-label="Adicionar aos favoritos">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M12 21s-7-4.35-9-9c-1.5-3.5 0-7 4-7 2.5 0 4 2 5 3 1-1 2.5-3 5-3 4 0 5.5 3.5 4 7-2 4.65-9 9-9 9z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="trending-card__body flex-grow-1 d-flex flex-column">
+                  <h3 class="trending-card__name">Creme facial nutritivo Noite</h3>
+                  <p class="trending-card__desc">Textura leve, recupera a barreira da pele enquanto você dorme.</p>
+                  <div class="trending-card__rating" aria-label="Avaliação 5 de 5, 189 avaliações">
+                    <span class="trending-stars" aria-hidden="true">★★★★★</span>
+                    <span class="trending-card__reviews">(189 avaliações)</span>
+                  </div>
+                  <div class="trending-card__price-row">
+                    <strong class="trending-price">R$&nbsp;54,90</strong>
+                    <span class="trending-price-old">R$&nbsp;69,90</span>
+                    <span class="trending-pct">21% OFF</span>
+                  </div>
+                  <div class="trending-card__actions mt-auto pt-3 d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                    <a class="trending-link-details" href="#catalogo">Ver detalhes</a>
+                    <a class="btn trending-btn-cart" href="#catalogo">Adicionar ao carrinho</a>
+                  </div>
+                </div>
               </article>
             </div>
+            <div class="col-12 col-md-6 col-lg-3 d-flex">
+              <article class="trending-card flex-grow-1 d-flex flex-column">
+                <div class="trending-card__media">
+                  <div
+                    class="trending-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                  ></div>
+                  <button type="button" class="trending-wish" aria-label="Adicionar aos favoritos">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M12 21s-7-4.35-9-9c-1.5-3.5 0-7 4-7 2.5 0 4 2 5 3 1-1 2.5-3 5-3 4 0 5.5 3.5 4 7-2 4.65-9 9-9 9z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="trending-card__body flex-grow-1 d-flex flex-column">
+                  <h3 class="trending-card__name">Kit limpeza facial diário</h3>
+                  <p class="trending-card__desc">Espuma + tônico para peles mistas e sensíveis.</p>
+                  <div class="trending-card__rating" aria-label="Avaliação 5 de 5, 512 avaliações">
+                    <span class="trending-stars" aria-hidden="true">★★★★★</span>
+                    <span class="trending-card__reviews">(512 avaliações)</span>
+                  </div>
+                  <div class="trending-card__price-row">
+                    <strong class="trending-price">R$&nbsp;79,00</strong>
+                    <span class="trending-price-old">R$&nbsp;99,00</span>
+                    <span class="trending-pct">20% OFF</span>
+                  </div>
+                  <div class="trending-card__actions mt-auto pt-3 d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                    <a class="trending-link-details" href="#catalogo">Ver detalhes</a>
+                    <a class="btn trending-btn-cart" href="#catalogo">Adicionar ao carrinho</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 d-flex">
+              <article class="trending-featured flex-grow-1 d-flex flex-column">
+                <h3 class="trending-featured__title">Coleção de tendências masculina</h3>
+                <div class="trending-featured__grid">
+                  <a href="#catalogo" class="trending-mini">
+                    <div
+                      class="trending-mini__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                    ></div>
+                    <span class="trending-mini__label">Calças</span>
+                    <span class="trending-mini__price">R$&nbsp;129,00</span>
+                    <span class="trending-mini__buy">Compre agora</span>
+                  </a>
+                  <a href="#catalogo" class="trending-mini">
+                    <div
+                      class="trending-mini__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                    ></div>
+                    <span class="trending-mini__label">Camisetas</span>
+                    <span class="trending-mini__price">R$&nbsp;89,90</span>
+                    <span class="trending-mini__buy">Compre agora</span>
+                  </a>
+                  <a href="#catalogo" class="trending-mini">
+                    <div
+                      class="trending-mini__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                    ></div>
+                    <span class="trending-mini__label">Tênis</span>
+                    <span class="trending-mini__price">R$&nbsp;249,00</span>
+                    <span class="trending-mini__buy">Compre agora</span>
+                  </a>
+                  <a href="#catalogo" class="trending-mini">
+                    <div
+                      class="trending-mini__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                    ></div>
+                    <span class="trending-mini__label">Boné</span>
+                    <span class="trending-mini__price">R$&nbsp;59,00</span>
+                    <span class="trending-mini__buy">Compre agora</span>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="explore-carousel-block py-5" aria-labelledby="explore-heading">
+        <div class="container position-relative">
+          <div class="explore-carousel-block__head d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <h2 id="explore-heading" class="explore-carousel-block__title h4 fw-bold mb-0">Comece a explorar agora</h2>
+            <a class="trending-block__view-all" href="#catalogo">Ver tudo</a>
+          </div>
+            <div class="explore-carousel" data-explore-carousel>
+            <button type="button" class="explore-carousel__prev explore-carousel__arrow" aria-label="Categorias anteriores">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="explore-carousel__viewport" tabindex="0">
+              <div class="explore-carousel__track">
+                <a href="#catalogo" class="explore-cat-card">
+                  <div
+                    class="explore-cat-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                  ></div>
+                  <span class="explore-cat-card__label">Mercearia</span>
+                </a>
+                <a href="#catalogo" class="explore-cat-card">
+                  <div
+                    class="explore-cat-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1555041469-586a93fac42b?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                  ></div>
+                  <span class="explore-cat-card__label">Casa</span>
+                </a>
+                <a href="#catalogo" class="explore-cat-card">
+                  <div
+                    class="explore-cat-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                  ></div>
+                  <span class="explore-cat-card__label">Moda</span>
+                </a>
+                <a href="#catalogo" class="explore-cat-card">
+                  <div
+                    class="explore-cat-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1498049794561-8550e695670e?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                  ></div>
+                  <span class="explore-cat-card__label">Eletrônicos</span>
+                </a>
+                <a href="#catalogo" class="explore-cat-card">
+                  <div
+                    class="explore-cat-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                  ></div>
+                  <span class="explore-cat-card__label">Brinquedos</span>
+                </a>
+                <a href="#catalogo" class="explore-cat-card">
+                  <div
+                    class="explore-cat-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                  ></div>
+                  <span class="explore-cat-card__label">Beleza</span>
+                </a>
+                <a href="#catalogo" class="explore-cat-card">
+                  <div
+                    class="explore-cat-card__img"
+                    style="background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&amp;fit=crop&amp;w=400&amp;q=80')"
+                  ></div>
+                  <span class="explore-cat-card__label">Esportes</span>
+                </a>
+              </div>
+            </div>
+            <button type="button" class="explore-carousel__next explore-carousel__arrow" aria-label="Próximas categorias">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="bestseller-block py-5 bg-white" aria-labelledby="bestseller-heading">
+        <div class="container">
+          <div class="section-head-bestseller d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <h2 id="bestseller-heading" class="section-head-bestseller__title h4 fw-bold mb-0">Produtos mais vendidos</h2>
+            <a class="section-head-bestseller__all" href="#catalogo">Ver tudo</a>
+          </div>
+          <div class="bestseller-grid">
+            <a href="#catalogo" class="bestseller-tile bestseller-tile--acc">
+              <div
+                class="bestseller-tile__bg"
+                style="background-image: url('https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&amp;fit=crop&amp;w=800&amp;q=80')"
+              ></div>
+              <span class="bestseller-tile__sash">Em breve</span>
+              <div class="bestseller-tile__meta">
+                <span class="bestseller-tile__title">Acessórios de informática</span>
+              </div>
+            </a>
+            <a href="#catalogo" class="bestseller-tile bestseller-tile--fashion">
+              <div
+                class="bestseller-tile__bg"
+                style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&amp;fit=crop&amp;w=800&amp;q=80')"
+              ></div>
+              <div class="bestseller-tile__meta bestseller-tile__meta--bottom">
+                <span class="bestseller-tile__price">R$&nbsp;200,00</span>
+                <span class="bestseller-tile__btn">Visitar loja</span>
+              </div>
+            </a>
+            <a href="#catalogo" class="bestseller-tile bestseller-tile--juice">
+              <div
+                class="bestseller-tile__bg"
+                style="background-image: url('https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&amp;fit=crop&amp;w=800&amp;q=80')"
+              ></div>
+              <div class="bestseller-tile__meta bestseller-tile__meta--bottom">
+                <span class="bestseller-tile__price">R$&nbsp;49,00</span>
+                <span class="bestseller-tile__btn bestseller-tile__btn--dark">Comprar agora</span>
+              </div>
+            </a>
+            <a href="#catalogo" class="bestseller-tile bestseller-tile--pet">
+              <div
+                class="bestseller-tile__bg"
+                style="background-image: url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&amp;fit=crop&amp;w=900&amp;q=80')"
+              ></div>
+              <div class="bestseller-tile__pet-copy">
+                <span class="bestseller-tile__pet-line">Ração para cães feita com amor</span>
+                <span class="bestseller-tile__pet-sub">Nós amamos cães</span>
+                <span class="bestseller-tile__pet-off">15% de desconto</span>
+                <span class="bestseller-tile__btn bestseller-tile__btn--blue">Compre agora</span>
+              </div>
+            </a>
+            <a href="#catalogo" class="bestseller-tile bestseller-tile--cameras">
+              <div
+                class="bestseller-tile__bg"
+                style="background-image: url('https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&amp;fit=crop&amp;w=1200&amp;q=80')"
+              ></div>
+              <div class="bestseller-tile__cam-features">
+                <span>Detecção facial com IA</span>
+                <span>Visão noturna</span>
+                <span>Armazenamento na nuvem</span>
+              </div>
+              <div class="bestseller-tile__meta bestseller-tile__meta--bottom bestseller-tile__meta--row">
+                <span class="bestseller-tile__price">R$&nbsp;420,00</span>
+                <span class="bestseller-tile__btn">Visitar loja</span>
+              </div>
+            </a>
+            <a href="#catalogo" class="bestseller-tile bestseller-tile--cosmetics">
+              <div
+                class="bestseller-tile__bg"
+                style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&amp;fit=crop&amp;w=800&amp;q=80')"
+              ></div>
+              <div class="bestseller-tile__meta bestseller-tile__meta--bottom">
+                <span class="bestseller-tile__price">R$&nbsp;149,00</span>
+                <span class="bestseller-tile__btn bestseller-tile__btn--dark">Comprar agora</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="limited-deal-block py-5" aria-labelledby="limited-deal-heading">
+        <div class="container position-relative">
+          <div class="limited-deal-block__head d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <h2 id="limited-deal-heading" class="limited-deal-block__title h4 fw-bold mb-0">Oferta por tempo limitado</h2>
+            <a class="section-head-bestseller__all" href="#catalogo">Ver tudo</a>
+          </div>
+          <div class="explore-carousel limited-deal-carousel" data-limited-carousel>
+            <button type="button" class="explore-carousel__prev explore-carousel__arrow" aria-label="Ofertas anteriores">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="explore-carousel__viewport limited-deal-carousel__viewport" tabindex="0">
+              <div class="explore-carousel__track limited-deal-carousel__track">
+                <article class="deal-product-card trending-card">
+                  <div class="trending-card__media">
+                    <div
+                      class="trending-card__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                    ></div>
+                    <span class="deal-product-card__badge">20% de desconto</span>
+                    <button type="button" class="trending-wish" aria-label="Adicionar aos favoritos">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M12 21s-7-4.35-9-9c-1.5-3.5 0-7 4-7 2.5 0 4 2 5 3 1-1 2.5-3 5-3 4 0 5.5 3.5 4 7-2 4.65-9 9-9 9z"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="trending-card__body flex-grow-1 d-flex flex-column">
+                    <h3 class="trending-card__name">Samsung Galaxy S24</h3>
+                    <p class="trending-card__desc">
+                      Smartphone flagship com tela dinâmica AMOLED e câmera noturna avançada.
+                    </p>
+                    <div class="trending-card__rating" aria-label="Avaliação 5 de 5, 342 avaliações">
+                      <span class="trending-stars" aria-hidden="true">★★★★★</span>
+                      <span class="trending-card__reviews">(342 avaliações)</span>
+                    </div>
+                    <div class="deal-product-card__price-line">
+                      <strong class="trending-price">R$&nbsp;799,99</strong>
+                      <span class="deal-product-card__old">(R$&nbsp;1.100,99)</span>
+                      <span class="deal-product-card__pct-note">20% de desconto</span>
+                    </div>
+                    <div class="trending-card__actions mt-auto pt-3 d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                      <a class="trending-link-details" href="#catalogo">Ver detalhes</a>
+                      <a class="btn trending-btn-cart trending-btn-cart--large" href="#catalogo">Adicionar ao carrinho</a>
+                    </div>
+                  </div>
+                </article>
+                <article class="deal-product-card trending-card">
+                  <div class="trending-card__media">
+                    <div
+                      class="trending-card__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                    ></div>
+                    <span class="deal-product-card__badge">15% de desconto</span>
+                    <button type="button" class="trending-wish" aria-label="Adicionar aos favoritos">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M12 21s-7-4.35-9-9c-1.5-3.5 0-7 4-7 2.5 0 4 2 5 3 1-1 2.5-3 5-3 4 0 5.5 3.5 4 7-2 4.65-9 9-9 9z"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="trending-card__body flex-grow-1 d-flex flex-column">
+                    <h3 class="trending-card__name">iPhone 15 Pro</h3>
+                    <p class="trending-card__desc">Chip A17 Pro, titânio e sistema de câmeras pro com zoom óptico.</p>
+                    <div class="trending-card__rating">
+                      <span class="trending-stars" aria-hidden="true">★★★★★</span>
+                      <span class="trending-card__reviews">(510 avaliações)</span>
+                    </div>
+                    <div class="deal-product-card__price-line">
+                      <strong class="trending-price">R$&nbsp;5.999,00</strong>
+                      <span class="deal-product-card__old">(R$&nbsp;6.999,00)</span>
+                      <span class="deal-product-card__pct-note">15% de desconto</span>
+                    </div>
+                    <div class="trending-card__actions mt-auto pt-3 d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                      <a class="trending-link-details" href="#catalogo">Ver detalhes</a>
+                      <a class="btn trending-btn-cart trending-btn-cart--large" href="#catalogo">Adicionar ao carrinho</a>
+                    </div>
+                  </div>
+                </article>
+                <article class="deal-product-card trending-card">
+                  <div class="trending-card__media">
+                    <div
+                      class="trending-card__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                    ></div>
+                    <span class="deal-product-card__badge">25% de desconto</span>
+                    <button type="button" class="trending-wish" aria-label="Adicionar aos favoritos">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M12 21s-7-4.35-9-9c-1.5-3.5 0-7 4-7 2.5 0 4 2 5 3 1-1 2.5-3 5-3 4 0 5.5 3.5 4 7-2 4.65-9 9-9 9z"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="trending-card__body flex-grow-1 d-flex flex-column">
+                    <h3 class="trending-card__name">Headphone Bluetooth Pro</h3>
+                    <p class="trending-card__desc">Cancelamento de ruído ativo e 40h de bateria para o dia todo.</p>
+                    <div class="trending-card__rating">
+                      <span class="trending-stars" aria-hidden="true">★★★★★</span>
+                      <span class="trending-card__reviews">(278 avaliações)</span>
+                    </div>
+                    <div class="deal-product-card__price-line">
+                      <strong class="trending-price">R$&nbsp;449,90</strong>
+                      <span class="deal-product-card__old">(R$&nbsp;599,90)</span>
+                      <span class="deal-product-card__pct-note">25% de desconto</span>
+                    </div>
+                    <div class="trending-card__actions mt-auto pt-3 d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                      <a class="trending-link-details" href="#catalogo">Ver detalhes</a>
+                      <a class="btn trending-btn-cart trending-btn-cart--large" href="#catalogo">Adicionar ao carrinho</a>
+                    </div>
+                  </div>
+                </article>
+                <article class="deal-product-card trending-card">
+                  <div class="trending-card__media">
+                    <div
+                      class="trending-card__img"
+                      style="background-image: url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&amp;fit=crop&amp;w=600&amp;q=80')"
+                    ></div>
+                    <span class="deal-product-card__badge">10% de desconto</span>
+                    <button type="button" class="trending-wish" aria-label="Adicionar aos favoritos">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M12 21s-7-4.35-9-9c-1.5-3.5 0-7 4-7 2.5 0 4 2 5 3 1-1 2.5-3 5-3 4 0 5.5 3.5 4 7-2 4.65-9 9-9 9z"
+                          stroke="currentColor"
+                          stroke-width="1.7"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="trending-card__body flex-grow-1 d-flex flex-column">
+                    <h3 class="trending-card__name">Smartwatch Fit Pulse</h3>
+                    <p class="trending-card__desc">Monitor de saúde, GPS e resistência à água 5ATM.</p>
+                    <div class="trending-card__rating">
+                      <span class="trending-stars" aria-hidden="true">★★★★★</span>
+                      <span class="trending-card__reviews">(189 avaliações)</span>
+                    </div>
+                    <div class="deal-product-card__price-line">
+                      <strong class="trending-price">R$&nbsp;629,00</strong>
+                      <span class="deal-product-card__old">(R$&nbsp;699,00)</span>
+                      <span class="deal-product-card__pct-note">10% de desconto</span>
+                    </div>
+                    <div class="trending-card__actions mt-auto pt-3 d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                      <a class="trending-link-details" href="#catalogo">Ver detalhes</a>
+                      <a class="btn trending-btn-cart trending-btn-cart--large" href="#catalogo">Adicionar ao carrinho</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <button type="button" class="explore-carousel__next explore-carousel__arrow" aria-label="Próximas ofertas">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
@@ -155,15 +877,14 @@
         <div class="container py-4">
           <div class="d-flex flex-column flex-md-row justify-content-between align-items-start gap-3 mb-4">
             <div>
-              <p class="section-eyebrow">Produtos</p>
-              <h2 class="h3 fw-semibold mb-1">Catálogo em destaque</h2>
-              <p class="text-secondary mb-0">
-                Carregado automaticamente de <code>/api/products</code>.
-              </p>
+              <h2 class="h3 fw-semibold mb-1">Catálogo</h2>
+              <p class="text-secondary mb-0">Peças cadastradas na loja.</p>
             </div>
             <div class="d-flex gap-2">
-              <button class="btn btn-sm btn-outline-light" type="button" data-filter="all">Todos</button>
-              <button class="btn btn-sm btn-outline-light" type="button" data-filter="active">Disponíveis</button>
+              <button class="btn btn-sm btn-accent btn-filter-deal" type="button" data-filter="all">Todos</button>
+              <button class="btn btn-sm btn-outline-secondary btn-filter-deal" type="button" data-filter="active">
+                Disponíveis
+              </button>
             </div>
           </div>
           <div id="products-grid" class="row g-4" aria-live="polite">
@@ -174,7 +895,7 @@
         </div>
       </section>
 
-      <section class="py-5">
+      <section id="sobre" class="py-5">
         <div class="container py-4">
           <div class="row g-4">
             <div class="col-md-4">
@@ -214,10 +935,139 @@
       </section>
     </main>
 
-    <footer class="border-top border-secondary py-4 bg-draxx text-secondary-custom">
-      <div class="container small d-flex flex-column flex-md-row justify-content-between gap-2">
-        <span>&copy; <span id="year"></span> Draxx. Todos os direitos reservados.</span>
-        <span class="font-monospace">API REST · Node · PostgreSQL</span>
+    <footer class="site-footer-mint">
+      <div class="container py-5">
+        <div class="row g-4 g-lg-5 justify-content-lg-between">
+          <div class="col-6 col-lg-2">
+            <h3 class="site-footer-mint__heading">Informações da Empresa</h3>
+            <ul class="site-footer-mint__list">
+              <li><a href="#sobre">Sobre nós</a></li>
+              <li><a href="#catalogo">Carreiras</a></li>
+              <li><a href="#contato">Comunicados à imprensa</a></li>
+              <li><a href="#sobre">Práticas de sustentabilidade</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="site-footer-mint__heading">Suporte ao Cliente</h3>
+            <ul class="site-footer-mint__list">
+              <li><a href="#contato">Fale conosco</a></li>
+              <li><a href="#contato">Central de ajuda (FAQ)</a></li>
+              <li><a href="#catalogo">Rastrear meu pedido</a></li>
+              <li><a href="#contato">Política de troca e reembolso</a></li>
+              <li><a href="#contato">Informações de envio</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3 text-center align-self-start align-self-lg-center order-first order-lg-0">
+            <a class="deal-logo site-footer-mint__logo mx-auto d-inline-flex" href="/" aria-label="Draxx — início">
+              <span class="deal-logo__word">
+                <span class="deal-logo__part">DRA</span>
+                <svg
+                  class="deal-logo__cart"
+                  viewBox="6.5 15 41 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10 20v11h7"
+                    stroke="currentColor"
+                    stroke-width="3.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M17 31h27.5l-3.2 17.5H21.2L17 31z"
+                    stroke="currentColor"
+                    stroke-width="3.4"
+                    stroke-linejoin="round"
+                  />
+                  <circle cx="25.5" cy="52.5" r="4" fill="currentColor" />
+                  <circle cx="38" cy="52.5" r="4" fill="currentColor" />
+                </svg>
+                <span class="deal-logo__part">XX</span>
+              </span>
+            </a>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="site-footer-mint__heading">Explorar</h3>
+            <ul class="site-footer-mint__list">
+              <li><a href="#colecao">Categorias</a></li>
+              <li><a href="#catalogo">Mais vendidos</a></li>
+              <li><a href="#catalogo">Novidades</a></li>
+              <li><a href="#catalogo">Ofertas e promoções</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="site-footer-mint__heading">Jurídico</h3>
+            <ul class="site-footer-mint__list">
+              <li><a href="#contato">Termos e condições</a></li>
+              <li><a href="#contato">Política de privacidade</a></li>
+              <li><a href="#contato">Política de cookies</a></li>
+              <li><a href="#contato">Declaração de acessibilidade</a></li>
+              <li><a href="#contato">Política de troca e reembolso</a></li>
+            </ul>
+            <div class="site-footer-mint__social mt-4">
+              <p class="site-footer-mint__social-title">Conecte-se conosco</p>
+              <ul class="site-footer-mint__icons">
+                <li>
+                  <a class="site-footer-mint__icon site-footer-mint__icon--fb" href="#" aria-label="Facebook">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="site-footer-mint__icon site-footer-mint__icon--ig" href="#" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path
+                        d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5A3.5 3.5 0 1012 14.5 3.5 3.5 0 008.5 11zm0 2A1.5 1.5 0 1110 11a1.5 1.5 0 01-1.5 1.5zM18 7a1 1 0 100-2 1 1 0 000 2z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="site-footer-mint__icon site-footer-mint__icon--x" href="#" aria-label="X (Twitter)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M18.9 3h3.4l-7.4 8.5L23 21h-6.8l-4.9-6.4L5.7 21H2.2l8-9.1L2 3h7l4.4 5.8L18.9 3z" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a class="site-footer-mint__icon site-footer-mint__icon--in" href="#" aria-label="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path
+                        d="M6.5 8.5h-4V21h4V8.5zm-2-4.6A2.3 2.3 0 116.3 6 2.25 2.25 0 014.5 3.9zM21 21h-4v-5.6c0-1.3 0-3-1.8-3-1.9 0-2.2 1.4-2.2 2.9V21h-4V8.5h3.8v1.7h.1c.5-1 1.8-2.1 3.8-2.1 4.1 0 4.8 2.7 4.8 6.2V21z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="site-footer-mint__newsletter mx-auto mt-5 pt-3">
+          <h2 class="site-footer-mint__newsletter-title text-center mb-3">Inscrição na newsletter</h2>
+          <form class="site-footer-mint__form" action="#" method="post">
+            <label class="visually-hidden" for="footer-newsletter-email">E-mail para newsletter</label>
+            <input
+              id="footer-newsletter-email"
+              class="site-footer-mint__input"
+              type="email"
+              name="email"
+              placeholder="Digite seu endereço de e-mail"
+              autocomplete="email"
+            />
+            <button class="site-footer-mint__submit" type="submit">Inscrever-se</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="site-footer-mint__bottom site-footer-mint__bottom-bar">
+        <div class="container py-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small">
+          <span class="site-footer-mint__copy mb-0">© 2026 DRAXX. Todos os direitos reservados.</span>
+          <span class="site-footer-mint__ssl mb-0 text-md-end">Certificações de Vendedor Confiável por SSL Seguro</span>
+        </div>
       </div>
     </footer>
 

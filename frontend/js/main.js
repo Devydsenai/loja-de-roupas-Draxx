@@ -14,16 +14,11 @@
       .replaceAll("'", "&#039;");
   }
 
+
+
   function setYear() {
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-  }
-
-  function setApiStatus(status, text) {
-    const badge = document.getElementById("api-status");
-    if (!badge) return;
-    badge.className = "badge rounded-pill bg-" + status;
-    badge.textContent = text;
   }
 
   function productCard(product) {
@@ -34,7 +29,8 @@
     const image = product.image_url
       ? `<img src="${escapeHtml(product.image_url)}" alt="${name}" loading="lazy" />`
       : `<span class="product-placeholder">DX</span>`;
-    const status = product.active
+    const isActive = product.active !== false && product.active !== 0;
+    const status = isActive
       ? `<span class="badge text-bg-success">Disponível</span>`
       : `<span class="badge text-bg-secondary">Indisponível</span>`;
 
@@ -65,15 +61,20 @@
     if (!grid) return;
 
     const visible =
-      filter === "active" ? products.filter((product) => product.active) : products;
+      filter === "active"
+        ? products.filter((product) => product.active !== false && product.active !== 0)
+        : products;
 
     if (visible.length === 0) {
       grid.innerHTML = `
         <div class="col-12">
           <div class="empty-state">
             <div>
-              <h3 class="h5 text-white">Nenhum produto encontrado</h3>
-              <p class="mb-0">Cadastre produtos no painel admin para preencher a vitrine.</p>
+              <h3 class="h5 empty-state__title">Nenhum produto encontrado</h3>
+              <p class="mb-0">
+                Cadastre itens no painel admin ou, com o banco vazio, rode
+                <code>npm run seed:products</code> na pasta <code>backend</code>.
+              </p>
             </div>
           </div>
         </div>
@@ -84,15 +85,82 @@
     grid.innerHTML = visible.map(productCard).join("");
   }
 
+  function initHorizontalCarousel(rootSelector, itemSelector) {
+    const root = document.querySelector(rootSelector);
+    if (!root) return;
+    const viewport = root.querySelector(".explore-carousel__viewport");
+    const track = root.querySelector(".explore-carousel__track");
+    const prevBtn = root.querySelector(".explore-carousel__prev");
+    const nextBtn = root.querySelector(".explore-carousel__next");
+    if (!viewport || !track || !prevBtn || !nextBtn) return;
+
+    function gapPx() {
+      const g = getComputedStyle(track).gap || getComputedStyle(track).columnGap;
+      const n = parseFloat(g, 10);
+      return Number.isFinite(n) ? n : 16;
+    }
+
+    function step() {
+      const first = track.querySelector(itemSelector);
+      if (!first) return viewport.clientWidth * 0.45;
+      const rect = first.getBoundingClientRect();
+      return rect.width + gapPx();
+    }
+
+    function maxScroll() {
+      return Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+    }
+
+    function updateArrows() {
+      const left = viewport.scrollLeft;
+      const max = maxScroll();
+      const eps = 3;
+      const atStart = left <= eps;
+      const atEnd = left >= max - eps;
+      prevBtn.disabled = atStart;
+      nextBtn.disabled = atEnd || max <= eps;
+      prevBtn.setAttribute("aria-disabled", atStart ? "true" : "false");
+      nextBtn.setAttribute("aria-disabled", nextBtn.disabled ? "true" : "false");
+      prevBtn.classList.toggle("is-disabled", atStart);
+      nextBtn.classList.toggle("is-disabled", nextBtn.disabled);
+    }
+
+    prevBtn.addEventListener("click", () => {
+      viewport.scrollBy({ left: -step(), behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      viewport.scrollBy({ left: step(), behavior: "smooth" });
+    });
+
+    viewport.addEventListener("scroll", updateArrows, { passive: true });
+    window.addEventListener("resize", updateArrows);
+
+    viewport.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        viewport.scrollBy({ left: step(), behavior: "smooth" });
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        viewport.scrollBy({ left: -step(), behavior: "smooth" });
+      }
+    });
+
+    requestAnimationFrame(() => {
+      updateArrows();
+    });
+  }
+
   function bindFilters() {
     document.querySelectorAll("[data-filter]").forEach((button) => {
       button.addEventListener("click", () => {
         document.querySelectorAll("[data-filter]").forEach((item) => {
           item.classList.remove("btn-accent");
-          item.classList.add("btn-outline-light");
+          item.classList.add("btn-outline-secondary");
         });
         button.classList.add("btn-accent");
-        button.classList.remove("btn-outline-light");
+        button.classList.remove("btn-outline-secondary");
         renderProducts(button.dataset.filter || "all");
       });
     });
@@ -100,25 +168,90 @@
 
   async function loadProducts() {
     const response = await fetch("/api/products");
-    if (!response.ok) throw new Error("HTTP " + response.status);
-    products = await response.json();
-    setApiStatus("success", "API online · produtos carregados");
+    if (!response.ok) {
+      throw new Error("Erro ao listar produtos (HTTP " + response.status + ").");
+    }
+    const ct = response.headers.get("content-type") || "";
+    if (!ct.includes("application/json")) {
+      throw new Error("Resposta não é JSON — abra o site pelo servidor Node (npm run dev na pasta backend).");
+    }
+    const data = await response.json();
+    products = Array.isArray(data) ? data : [];
     renderProducts("all");
   }
 
   async function checkApi() {
     const response = await fetch("/api/health");
-    if (!response.ok) throw new Error("HTTP " + response.status);
+    if (!response.ok) throw new Error("API indisponível (HTTP " + response.status + ").");
     return response.json();
   }
 
+  function showCatalogError(err) {
+    const grid = document.getElementById("products-grid");
+    if (!grid) return;
+    const detail = err && err.message
+      ? `<p class="mb-0 small text-secondary mt-2">${escapeHtml(err.message)}</p>`
+      : "";
+    grid.innerHTML = `
+      <div class="col-12">
+        <div class="empty-state">
+          <div>
+            <h3 class="h5 empty-state__title">Não foi possível carregar o catálogo</h3>
+            <p class="mb-0">
+              Inicie a API na pasta <code>backend</code> (<code>npm run dev</code>) com <code>DATABASE_URL</code>
+              e <code>JWT_SECRET</code> no <code>.env</code>. Acesse a loja em <code>http://localhost:3000</code>
+              (mesmo servidor que entrega o HTML e a API).
+            </p>
+            ${detail}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function syncDealSubNav() {
+    const nav = document.querySelector(".deal-sub-right");
+    if (!nav) return;
+
+    const hash = location.hash || "";
+    const links = [...nav.querySelectorAll("a")];
+    let matched = links.find((a) => {
+      const href = a.getAttribute("href") || "";
+      return href.startsWith("#") && href === hash;
+    });
+    if (!matched) {
+      matched = links.find((a) => (a.getAttribute("href") || "") === "/") || links[0];
+    }
+
+    links.forEach((a) => {
+      const on = a === matched;
+      a.classList.toggle("is-active", on);
+      if (on) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+
+    const offcanvas = document.getElementById("dealMobileNav");
+    if (offcanvas) {
+      const activeHref = matched.getAttribute("href") || "/";
+      offcanvas.querySelectorAll("a.deal-offcanvas__link").forEach((a) => {
+        const h = a.getAttribute("href") || "";
+        const on = h === activeHref;
+        a.classList.toggle("is-active", on);
+        if (on) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
+    }
+  }
+
   setYear();
+  syncDealSubNav();
+  window.addEventListener("hashchange", syncDealSubNav);
+  window.addEventListener("pageshow", syncDealSubNav);
   bindFilters();
+  initHorizontalCarousel("[data-explore-carousel]", ".explore-cat-card");
+  initHorizontalCarousel("[data-limited-carousel]", ".deal-product-card");
 
   checkApi()
     .then(() => loadProducts())
-    .catch(() => {
-      setApiStatus("danger", "API indisponível");
-      renderProducts("all");
-    });
+    .catch(showCatalogError);
 })();

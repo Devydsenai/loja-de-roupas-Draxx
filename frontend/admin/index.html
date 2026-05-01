@@ -13,33 +13,200 @@
     />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="stylesheet" href="/css/admin-dashboard.css" />
   </head>
   <body class="admin-body" data-admin-page="dashboard" data-admin-protected="true">
     <div class="admin-layout">
-      <aside class="admin-sidebar">
-        <div class="admin-brand">
-          <a class="navbar-brand fw-semibold letter-space text-white text-decoration-none" href="/admin/">
-            DRAXX
+      <aside class="admin-sidebar" aria-label="Navegação administrativa">
+        <div class="admin-sidebar__top">
+          <a class="admin-logo" href="/admin/" aria-label="Draxx Admin — início">
+            <span class="admin-logo__word">
+              <span class="admin-logo__part">DRA</span>
+              <svg
+                class="admin-logo__cart"
+                viewBox="6.5 15 41 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M10 20v11h7"
+                  stroke="currentColor"
+                  stroke-width="3.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17 31h27.5l-3.2 17.5H21.2L17 31z"
+                  stroke="currentColor"
+                  stroke-width="3.4"
+                  stroke-linejoin="round"
+                />
+                <circle cx="25.5" cy="52.5" r="4" fill="currentColor" />
+                <circle cx="38" cy="52.5" r="4" fill="currentColor" />
+              </svg>
+              <span class="admin-logo__part">XX</span>
+            </span>
           </a>
-          <span class="badge text-bg-dark">Admin</span>
+          <button
+            type="button"
+            class="admin-sidebar__collapse"
+            id="admin-sidebar-collapse"
+            aria-label="Recolher menu lateral"
+            title="Recolher menu"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M14 7l-5 5 5 5"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path d="M4 5v14M20 5v14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.3" />
+            </svg>
+          </button>
         </div>
-        <nav class="admin-nav">
-          <a class="active" href="/admin/">Dashboard <span>01</span></a>
-          <a href="/admin/products.html">Produtos <span>02</span></a>
-          <a href="/admin/orders.html">Pedidos <span>03</span></a>
-          <a href="/">Loja <span>Web</span></a>
+        <nav class="admin-sidebar__nav">
+          <div class="admin-nav-group">
+            <p class="admin-nav-group__label">Menu principal</p>
+            <a class="admin-nav-link is-active" href="/admin/">
+              <svg class="admin-nav-link__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M4 10.5L12 3.5l8 7v10a1 1 0 01-1 1h-5v-7H10v7H5a1 1 0 01-1-1v-10z"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>Dashboard</span>
+            </a>
+            <a class="admin-nav-link" href="/admin/orders.html">
+              <svg class="admin-nav-link__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M6 7h14l-1 11H7L6 7z"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 7h2"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span>Pedidos</span>
+            </a>
+          </div>
+          <div class="admin-nav-group">
+            <p class="admin-nav-group__label">Catálogo</p>
+            <a class="admin-nav-link" href="/admin/products.html">
+              <svg class="admin-nav-link__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M4 8.5a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2v-9z"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                />
+                <path d="M8.5 11h7" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" />
+              </svg>
+              <span>Produtos</span>
+            </a>
+          </div>
         </nav>
+        <div class="admin-sidebar__footer">
+          <div class="admin-sidebar__user">
+            <div class="admin-sidebar__avatar" id="admin-avatar">?</div>
+            <div class="admin-sidebar__user-text">
+              <strong id="admin-sidebar-name">Convidado</strong>
+              <span id="admin-sidebar-email">Faça login para continuar</span>
+            </div>
+            <button type="button" class="admin-sidebar__logout" id="logout-button" aria-label="Sair da sessão" title="Sair">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M10 17l5-5-5-5M15 12H3"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path d="M21 4v16" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" opacity="0.35" />
+              </svg>
+            </button>
+          </div>
+          <a class="admin-sidebar__shop-btn" href="/" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M3 10V8a2 2 0 012-2h3M3 10v8a2 2 0 002 2h14M3 10h8.5M16.5 6h4V3l3 3v4h-3a2 2 0 01-2-2V6z"
+                stroke="currentColor"
+                stroke-width="1.55"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>Ver loja</span>
+            <svg class="admin-icon-ext" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
       </aside>
 
-      <main class="admin-main">
-        <header class="admin-topbar">
-          <div>
-            <p class="section-eyebrow mb-1">Visão geral</p>
-            <h1 class="h3 mb-0">Dashboard e-commerce</h1>
+      <main class="admin-main admin-main--dashboard">
+        <header class="dash-topbar">
+          <h1 class="dash-topbar__title">Dashboard</h1>
+          <div class="dash-search" role="search">
+            <input
+              type="search"
+              class="dash-search__input"
+              placeholder="Buscar dados, usuários ou relatórios"
+              aria-label="Buscar no painel"
+              autocomplete="off"
+            />
+            <button type="button" class="dash-search__btn" aria-label="Buscar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.7" />
+                <path d="M16 16l5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+            </button>
           </div>
-          <div class="d-flex align-items-center gap-2">
-            <span id="admin-user" class="badge rounded-pill text-bg-secondary">Sem login</span>
-            <button id="logout-button" class="btn btn-sm btn-outline-light" type="button">Sair</button>
+          <div class="dash-topbar__actions">
+            <button type="button" class="dash-icon-btn" aria-label="Notificações">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M6 8a6 6 0 1112 0c0 7 3 7 3 7H3s3 0 3-7M10.3 21a1.7 1.7 0 003.4 0"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="dash-icon-btn dash-icon-btn--theme"
+              id="dash-theme-toggle"
+              data-admin-theme-toggle
+              aria-label="Alternar tema claro ou escuro"
+              title="Tema"
+            >
+              <svg class="dash-theme-icon dash-theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.65" />
+                <path
+                  d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.5 1.5M16.9 16.9l1.4 1.4M5.6 18.4l1.5-1.5M16.9 7.1l1.4-1.4"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <div class="dash-topbar__avatar admin-topbar-avatar" id="dash-topbar-avatar" aria-hidden="true">?</div>
           </div>
         </header>
 
@@ -69,94 +236,189 @@
           </div>
         </section>
 
-        <section class="row g-4 mb-4">
-          <div class="col-md-6 col-xl-3">
-            <div class="admin-card metric-card">
-              <span>Produtos</span>
-              <strong id="metric-products">0</strong>
-              <small>catálogo total</small>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="admin-card metric-card">
-              <span>Pedidos</span>
-              <strong id="metric-orders">0</strong>
-              <small>admin autenticado</small>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="admin-card metric-card">
-              <span>Receita</span>
-              <strong id="metric-revenue">R$ 0,00</strong>
-              <small>pedidos listados</small>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="admin-card metric-card">
-              <span>Estoque</span>
-              <strong id="metric-stock">0</strong>
-              <small>unidades</small>
-            </div>
-          </div>
-        </section>
+        <div class="dash-board" id="dash-board">
+          <section class="dash-kpi-row" aria-label="Resumo">
+            <article class="dash-kpi-card">
+              <div class="dash-kpi-card__head">
+                <span class="dash-kpi-card__label">Receita total</span>
+              </div>
+              <p class="dash-kpi-card__value" id="dash-kpi-revenue">R$&nbsp;0</p>
+              <p class="dash-kpi-card__trend dash-kpi-card__trend--up">
+                <span>Pedidos pagos</span>
+                <strong id="dash-kpi-paid-pct">—</strong>
+              </p>
+              <p class="dash-kpi-card__prev">Soma dos pedidos listados</p>
+              <a class="dash-kpi-card__details" href="/admin/orders.html">Detalhes</a>
+            </article>
+            <article class="dash-kpi-card">
+              <div class="dash-kpi-card__head">
+                <span class="dash-kpi-card__label">Total de pedidos</span>
+              </div>
+              <p class="dash-kpi-card__value" id="dash-kpi-orders">0</p>
+              <p class="dash-kpi-card__trend dash-kpi-card__trend--up">
+                <span>Catálogo ativo</span>
+                <strong id="dash-kpi-catalog-hint">—</strong>
+              </p>
+              <p class="dash-kpi-card__prev"><span id="metric-products">0</span> produtos · <span id="metric-stock">0</span> unid.</p>
+              <a class="dash-kpi-card__details" href="/admin/orders.html">Detalhes</a>
+            </article>
+            <article class="dash-kpi-card dash-kpi-card--split">
+              <div class="dash-kpi-split">
+                <div>
+                  <span class="dash-kpi-split__label">Pendentes</span>
+                  <p class="dash-kpi-split__value" id="dash-kpi-pending">0</p>
+                  <p class="dash-kpi-split__sub dash-kpi-split__sub--muted">aguardando</p>
+                </div>
+                <div>
+                  <span class="dash-kpi-split__label">Cancelados</span>
+                  <p class="dash-kpi-split__value dash-kpi-split__value--danger" id="dash-kpi-canceled">0</p>
+                  <p class="dash-kpi-split__sub dash-kpi-split__sub--danger" id="dash-kpi-canceled-note">—</p>
+                </div>
+              </div>
+              <a class="dash-kpi-card__details" href="/admin/orders.html">Detalhes</a>
+            </article>
+          </section>
 
-        <section class="row g-4">
-          <div class="col-xl-5">
-            <div class="admin-card h-100">
-              <div class="admin-card-header">
-                <h2 class="h5 mb-0">Vendas recentes</h2>
-                <span class="small text-secondary">últimos pedidos</span>
+          <div class="dash-grid">
+            <section class="dash-report dash-card">
+              <div class="dash-report__head">
+                <h2 class="dash-report__title">Relatório desta semana</h2>
+                <div class="dash-report__controls">
+                  <div class="dash-pill-toggle" role="group" aria-label="Período">
+                    <button type="button" class="is-active">Esta semana</button>
+                    <button type="button" disabled>Semana anterior</button>
+                  </div>
+                  <button type="button" class="dash-icon-btn dash-icon-btn--sm" aria-label="Mais opções">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <circle cx="12" cy="5" r="1.8" />
+                      <circle cx="12" cy="12" r="1.8" />
+                      <circle cx="12" cy="19" r="1.8" />
+                    </svg>
+                  </button>
+                </div>
               </div>
-              <div class="admin-card-body">
-                <div id="sales-chart" class="chart-bars" aria-label="Gráfico de vendas"></div>
+              <div class="dash-report__metrics" role="tablist">
+                <button type="button" class="dash-metric-pill is-active"><span id="dash-m-customers">0</span> clientes (pedidos)</button>
+                <button type="button" class="dash-metric-pill"><span id="metric-products-2">0</span> produtos totais</button>
+                <button type="button" class="dash-metric-pill"><span id="dash-m-instock">0</span> em estoque</button>
+                <button type="button" class="dash-metric-pill"><span id="dash-m-outstock">0</span> sem estoque</button>
+                <button type="button" class="dash-metric-pill"><span id="dash-m-revenue-short">R$ 0</span> receita</button>
               </div>
-            </div>
+              <div class="dash-chart-wrap">
+                <div id="dash-area-chart" class="dash-area-chart" aria-label="Gráfico de valores por dia da semana"></div>
+              </div>
+            </section>
+
+            <aside class="dash-side">
+              <section class="dash-card dash-side-card">
+                <h3 class="dash-side-card__title">Pedidos nos últimos registros</h3>
+                <p class="dash-side-card__k" id="dash-side-orders-k">0</p>
+                <p class="dash-side-card__cb">Valor por pedido (amostra)</p>
+                <div id="dash-mini-bars" class="dash-mini-bars" aria-hidden="true"></div>
+              </section>
+              <section class="dash-card dash-side-card dash-side-card--map">
+                <h3 class="dash-side-card__title">Destaques do catálogo</h3>
+                <p class="dash-side-card__sub">Peças da loja — ícones de moda (roupas Draxx)</p>
+                <div id="dash-product-spotlight" class="dash-product-spotlight"></div>
+                <a class="dash-btn-insight" href="/admin/products.html">Ver vitrine / produtos</a>
+              </section>
+            </aside>
           </div>
-          <div class="col-xl-7">
-            <div class="admin-card h-100">
-              <div class="admin-card-header">
-                <h2 class="h5 mb-0">Últimos pedidos</h2>
-                <a class="btn btn-sm btn-outline-light" href="/admin/orders.html">Ver todos</a>
+
+          <div class="dash-bottom-grid">
+            <section class="dash-card dash-table-card">
+              <div class="dash-table-card__head">
+                <h2 class="dash-table-card__title">Transações</h2>
+                <a class="dash-filter-chip" href="/admin/orders.html">Filtrar</a>
               </div>
               <div class="table-responsive">
-                <table class="table table-dark admin-table">
+                <table class="table dash-table">
                   <thead>
                     <tr>
+                      <th>Nº</th>
                       <th>Pedido</th>
                       <th>Cliente</th>
-                      <th>Total</th>
-                      <th>Status</th>
                       <th>Data</th>
+                      <th>Status</th>
+                      <th class="text-end">Valor</th>
                     </tr>
                   </thead>
                   <tbody id="latest-orders-table"></tbody>
                 </table>
               </div>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="admin-card">
-              <div class="admin-card-header">
-                <h2 class="h5 mb-0">Produtos recentes</h2>
-                <a class="btn btn-sm btn-accent" href="/admin/products.html">Gerenciar</a>
+              <div class="dash-table-card__foot">
+                <a class="dash-kpi-card__details" href="/admin/orders.html">Detalhes</a>
+              </div>
+            </section>
+            <section class="dash-card dash-top-products-card">
+              <div class="dash-table-card__head">
+                <h2 class="dash-table-card__title">Top produtos</h2>
+                <a class="dash-link-all" href="/admin/products.html">Todos</a>
+              </div>
+              <div class="dash-top-search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.6" />
+                  <path d="M16 16l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                </svg>
+                <input type="search" class="dash-top-search__input" placeholder="Buscar produto" aria-label="Buscar produto na lista" id="dash-product-search" autocomplete="off" />
+              </div>
+              <ul class="dash-top-list" id="dash-top-products-list"></ul>
+            </section>
+
+            <section class="dash-card dash-table-card dash-table-card--wide">
+              <div class="dash-table-card__head">
+                <h2 class="dash-table-card__title">Mais vendidos (estoque)</h2>
+                <a class="dash-filter-chip" href="/admin/products.html">Filtrar</a>
               </div>
               <div class="table-responsive">
-                <table class="table table-dark admin-table">
+                <table class="table dash-table">
                   <thead>
                     <tr>
                       <th>Produto</th>
-                      <th>Preço</th>
-                      <th>Estoque</th>
+                      <th>Pedidos totais*</th>
                       <th>Status</th>
-                      <th class="text-end">Ações</th>
+                      <th class="text-end">Preço</th>
                     </tr>
                   </thead>
                   <tbody id="latest-products-table"></tbody>
                 </table>
               </div>
-            </div>
+              <p class="dash-table-note">* Ordenado por estoque disponível; ajuste quando houver ranking de vendas na API.</p>
+            </section>
+
+            <section class="dash-card dash-add-card">
+              <div class="dash-table-card__head">
+                <h2 class="dash-table-card__title">Novo produto</h2>
+                <a class="dash-link-all" href="/admin/products.html">+ Cadastrar</a>
+              </div>
+              <p class="dash-add-card__hint">Abra a página de produtos para incluir peças, fotos e estoque.</p>
+              <ul class="dash-add-cats">
+                <li>
+                  <span class="dash-add-cats__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V7l8-4z" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <span>Moda &amp; básicos</span>
+                  <span class="dash-add-cats__chev" aria-hidden="true">›</span>
+                </li>
+                <li>
+                  <span class="dash-add-cats__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 4h12v16H6z M8 8h8 M8 12h6" stroke="currentColor" stroke-width="1.5"/></svg>
+                  </span>
+                  <span>Jeans &amp; calças</span>
+                  <span class="dash-add-cats__chev" aria-hidden="true">›</span>
+                </li>
+                <li>
+                  <span class="dash-add-cats__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.35 9-9c1.5-3.5 0-7-4-7-2.5 0-4 2-5 3-1-1-2.5-3-5-3-4 0-5.5 3.5-4 7 2 4.65 9 9 9 9z" stroke="currentColor" stroke-width="1.4"/></svg>
+                  </span>
+                  <span>Casacos &amp; acessórios</span>
+                  <span class="dash-add-cats__chev" aria-hidden="true">›</span>
+                </li>
+              </ul>
+              <a class="btn btn-accent w-100 mt-2" href="/admin/products.html">Ir para cadastro</a>
+            </section>
           </div>
-        </section>
+        </div>
       </main>
     </div>
 

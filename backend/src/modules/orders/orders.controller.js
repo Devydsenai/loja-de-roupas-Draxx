@@ -85,7 +85,14 @@ export async function listMyOrders(req, res) {
 export async function listAllOrders(req, res) {
   const query = await db.query(
     `SELECT o.id, o.user_id, u.name AS customer_name, u.email AS customer_email,
-            o.payment_method, o.total, o.status, o.created_at
+            o.payment_method, o.total, o.status, o.created_at,
+            (SELECT p.name FROM order_items oi
+             JOIN products p ON p.id = oi.product_id
+             WHERE oi.order_id = o.id ORDER BY oi.id ASC LIMIT 1) AS first_product_name,
+            (SELECT p.image_url FROM order_items oi
+             JOIN products p ON p.id = oi.product_id
+             WHERE oi.order_id = o.id ORDER BY oi.id ASC LIMIT 1) AS first_product_image,
+            (SELECT COUNT(*)::int FROM order_items oi WHERE oi.order_id = o.id) AS order_item_count
      FROM orders o
      JOIN users u ON u.id = o.user_id
      ORDER BY o.id DESC`,
